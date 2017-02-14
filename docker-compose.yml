@@ -35,6 +35,6 @@ services:
       MYSQL_PASSWORD: pass
 
 volumes:
-#  moodle_db_files:
+  moodle_db_files:
   chamilo_db_files:
   chamilo_composer_cache_files:
