@@ -1,0 +1,40 @@
+version: '2'
+services:
+#  moodle_web:
+#    build: moodle
+#    ports:
+#      - 80:80
+#
+#  moodle_db:
+#    image: mysql:5.7
+#    volumes:
+#      - moodle_db_files:/var/lib/mysql
+#    environment:
+#      MYSQL_ROOT_PASSWORD: toor
+#      MYSQL_DATABASE: moodle
+#      MYSQL_USER: user
+#      MYSQL_PASSWORD: pass
+
+  chamilo_web:
+    build: chamilo
+    ports:
+      - 81:80
+    depends_on:
+      - chamilo_db
+    volumes:
+      - chamilo_composer_cache_files:/root/.composer/
+
+  chamilo_db:
+    image: mysql:5.7
+    volumes:
+      - chamilo_db_files:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: toor
+      MYSQL_DATABASE: chamilo
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pass
+
+volumes:
+#  moodle_db_files:
+  chamilo_db_files:
+  chamilo_composer_cache_files:
